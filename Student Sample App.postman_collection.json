@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "658a9a79-b8ea-4219-85f4-afe2551c83d1",
+		"name": "Student Sample App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "h",
+						"value": "keerthu",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"1\",\n\t\"name\" : \"vicky\",\n\t\"age\" : 30,\n\t\"city\" : \"vancover\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/student"
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt String",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "ey3I1Nqb+mbtf5kxcMkB+w=="
+				},
+				"url": "http://localhost:8080/decrypt"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Staff",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "h",
+						"value": "keerthu",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"1\",\n\t\"name\" : \"Rajesh Ramesh\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/staff"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
