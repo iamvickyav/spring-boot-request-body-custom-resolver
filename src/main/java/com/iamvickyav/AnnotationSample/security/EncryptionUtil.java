@@ -18,21 +18,34 @@ public class EncryptionUtil {
     Encryptor encryptor;
 
     public void encryptSensitiveFields(Object inputObj) {
-
         LOGGER.info("Request received for Encrypting Sensitive Fields in Object");
-        Field[] fieldList = inputObj.getClass().getDeclaredFields();
+        processFields(inputObj, SecurityProcess.ENCRYPT);
+        LOGGER.info("Sensitive Fields encrypted successfully");
+    }
+
+    public void decryptSensitiveFields(Object inputObj) {
+        LOGGER.info("Request received for Decrypting Sensitive Fields in Object");
+        processFields(inputObj, SecurityProcess.DECRYPT);
+        LOGGER.info("Sensitive Fields decrypted successfully");
+    }
+
+    void processFields(Object input, SecurityProcess securityProcess) {
+        Field[] fieldList = input.getClass().getDeclaredFields();
         for(Field field: fieldList) {
             if(field.isAnnotationPresent(SensitiveField.class)) {
                 field.setAccessible(true);
                 try {
-                    String originalValue = (String) field.get(inputObj);
-                    String encryptedValue = encryptor.encrypt(originalValue);
-                    field.set(inputObj, encryptedValue);
+                    String originalValue = (String) field.get(input);
+                    String processedValue ;
+                    if(securityProcess.equals(SecurityProcess.ENCRYPT))
+                        processedValue = encryptor.encrypt(originalValue);
+                    else
+                        processedValue = encryptor.decrypt(originalValue);
+                    field.set(input, processedValue);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
         }
-        LOGGER.info("Sensitive Fields encrypted successfully");
     }
 }

@@ -38,19 +38,6 @@
 			"response": []
 		},
 		{
-			"name": "Decrypt String",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "ey3I1Nqb+mbtf5kxcMkB+w=="
-				},
-				"url": "http://localhost:8080/decrypt"
-			},
-			"response": []
-		},
-		{
 			"name": "Create Staff",
 			"request": {
 				"method": "POST",
