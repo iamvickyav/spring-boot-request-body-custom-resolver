@@ -17,7 +17,7 @@ public class StudentController {
     Logger LOGGER = LoggerFactory.getLogger(StudentController.class);
 
     @RequestMapping(value = "/student", method = RequestMethod.POST)
-    Student saveStudent(@Valid Student student) {
+    Student saveStudent(@RequestBody @Valid Student student) {
         LOGGER.info("Student object received in controller for student: name={}", student.getName());
         return student;
     }
