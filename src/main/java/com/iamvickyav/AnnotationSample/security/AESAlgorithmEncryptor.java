@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
 
-@Component
+@Component(value = "AES")
 public class AESAlgorithmEncryptor implements Encryptor {
 
     private static SecretKeySpec secretKey;
